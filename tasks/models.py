@@ -11,7 +11,18 @@ class Task(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
+    published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)     
     update_at = models.DateTimeField(auto_now=True)
+
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=32)
+    email = models.EmailField(max_length=50)
+    phone_number = models.CharField(max_length=15)
+    created_at = models.DateTimeField(auto_now_add=True)     
+    update_at = models.DateTimeField(auto_now=True)
+
 
 
