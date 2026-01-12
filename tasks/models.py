@@ -17,12 +17,5 @@ class Blog(models.Model):
 
 
 
-class Contact(models.Model):
-    name = models.CharField(max_length=32)
-    email = models.EmailField(max_length=50)
-    phone_number = models.CharField(max_length=15)
-    created_at = models.DateTimeField(auto_now_add=True)     
-    update_at = models.DateTimeField(auto_now=True)
-
 
 
