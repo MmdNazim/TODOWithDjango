@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Task
 
-#using decorator here:
+#using decorator here and using admin crud:
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("title","completed", "created_at", "update_at")
