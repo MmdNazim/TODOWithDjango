@@ -7,20 +7,21 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+class SubCategory(models.Model):
+    name = models.CharField(max_length=64)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class Task(models.Model):
-    Category = models.ForeignKey(Category, on_delete=models.SET_NULL)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)     #[NOTE: eikhane database relation krse, eita hoilo "one to one relationship"]
+    Category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)  #[NOTE: eikhane database relation krse, eita hoilo "one to many relationship"]
+    subcategory = models.ManyToManyField(SubCategory)      #[NOTE: eikhane database relation krse, eita hoilo "many to many relationship"]
     title = models.CharField(max_length=128)
     completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)        #[NOTE: eikhane "auto_now_add" ei function tar kaj holo je jokhn ami data entry krbo tokhn ei function ta current time ta nibe.]
     update_at = models.DateTimeField(auto_now=True)
 
 
-class Blog(models.Model):
-    title = models.CharField(max_length=128)
-    description = models.TextField()
-    published = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)     
-    update_at = models.DateTimeField(auto_now=True)
 
 
 
