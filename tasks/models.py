@@ -22,6 +22,14 @@ class Task(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
 
+#n+1 query(Interview Question):
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=124)
+    content = models.TextField()
+    create_at = models.DateTimeField(auto_now_add=True)
+    
+
 
 
 
